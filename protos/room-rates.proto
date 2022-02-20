@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package roomRates;
+
+message RoomType {
+  int32 id = 1;
+  string code = 2;
+}
+
+message RoomTypeList {
+  repeated RoomType roomTypes = 1;
+}
+
+message RoomTypeRequest {
+  string hotelCode = 1;
+  string rateCode = 2;
+}
+
+service RoomRateService {
+  rpc GetRoomTypes (RoomTypeRequest) returns (RoomTypeList) {}
+}
